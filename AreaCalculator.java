@@ -7,7 +7,6 @@ This program calculates the area of a circle, rectangle, or triangle.
 
 import java.awt.*; //gives access to the java command libraries
 import hsa.Console; //gives access to the Console class file
-import hsa.Message;
 import javax.swing.JOptionPane; //gives access to J Option Pane
 
 public class AreaCalculator //creates a new class called AreaCalculator
@@ -70,31 +69,25 @@ public class AreaCalculator //creates a new class called AreaCalculator
 	shape = c.readString (); //gets shape
 	//if statement
 	//circle user input
-	while (shape.equals ("circle"))
+	if (shape.equals ("circle"))
 	{
-	    try
+	    c.print ("Please enter the radius of the circle: ");
+	    radius = c.readDouble (); //gets radius
+	    //errortrap
+	    if (radius <= 0)
 	    {
-		c.print ("Please enter the radius of the circle: ");
-		radius = c.readDouble (); //gets radius
-		//errortrap
-		while (radius <= 0)
-		{
-		    //error message
-		    JOptionPane.showMessageDialog (null, "You must enter a positive number.", "Error", JOptionPane.ERROR_MESSAGE);
-		    askData (); //calls askData
-		}
-		catch
-		{
-		}
+		//error message
+		JOptionPane.showMessageDialog (null, "You must enter a positive number.", "Error", JOptionPane.ERROR_MESSAGE);
+		askData (); //calls askData
 	    }
 	}
 	//rectangle user input
-	while (shape.equals ("rectangle"))
+	else if (shape.equals ("rectangle"))
 	{
 	    c.print ("Please enter the length of the rectangle: ");
 	    length = c.readDouble (); //gets length
 	    //errortrap
-	    while (length <= 0)
+	    if (length <= 0)
 	    {
 		//error message
 		JOptionPane.showMessageDialog (null, "You must enter a positive number.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -105,7 +98,7 @@ public class AreaCalculator //creates a new class called AreaCalculator
 		c.print ("Please enter the width of the rectangle: ");
 		width = c.readDouble (); //gets width
 		//errortrap
-		while (width <= 0)
+		if (width <= 0)
 		{
 		    //error message
 		    JOptionPane.showMessageDialog (null, "You must enter a positive number.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -114,12 +107,12 @@ public class AreaCalculator //creates a new class called AreaCalculator
 	    }
 	}
 	//triangle user input
-	while (shape.equals ("triangle"))
+	else if (shape.equals ("triangle"))
 	{
 	    c.print ("Please enter the base of the triangle: ");
 	    base = c.readDouble (); //gets base
 	    //errortrap
-	    while (base <= 0)
+	    if (base <= 0)
 	    {
 		//error message
 		JOptionPane.showMessageDialog (null, "You must enter a positive number.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -148,7 +141,6 @@ public class AreaCalculator //creates a new class called AreaCalculator
     }
 
 
-
     public void display ()  //display method
     {
 	//local variable declaration
@@ -159,20 +151,14 @@ public class AreaCalculator //creates a new class called AreaCalculator
 	{
 	    area = Math.PI * radius * radius;
 	}
-
-
 	else if (shape.equals ("rectangle"))
 	{
 	    area = length * width;
 	}
-
-
 	else
 	{
 	    area = base * height / 2;
 	}
-
-
 	//output statement
 	c.println ("The area of the " + shape + " is " + area + " units squared.");
 	c.println ();
@@ -199,8 +185,8 @@ public class AreaCalculator //creates a new class called AreaCalculator
 	    a.askData (); //executes askData method
 	    a.display (); //executes display method
 	}
-
-
 	a.goodbye (); //executes goodbye method
     }
 }
+
+

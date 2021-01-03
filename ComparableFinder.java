@@ -12,24 +12,25 @@ public class ComparableFinder
 
     public void input ()
     {
-        ArrayList<Comparable> arrOfElements = new ArrayList<>();
+        ArrayList<Object> arrOfElements = new ArrayList<>();
         arrOfElements.add("hello");
         arrOfElements.add("string");
         arrOfElements.add("book");
         arrOfElements.add("rain");
         
-        Comparable findItem = "string";
+        Object findItem = "book";
         System.out.println (searchItem (arrOfElements, findItem));
     }
 
 
-     public boolean searchItem (ArrayList<Comparable> list, Comparable item)
+     public boolean searchItem (ArrayList<Object> list, Object item)
      {
          if (list.size() == 0)
              return false;   
-         if (list.get(0).equals(item))
+         if (list.get(list.size() - 1).equals(item))
              return true;
-         return searchItem(list.subList(1,list.size()), item); 
+         list.remove(list.size() - 1);
+         return searchItem(list, item); 
      }
 
 

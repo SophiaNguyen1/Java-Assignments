@@ -4,7 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 /**
- * The TextTest class gets user input and displays it in JFrameTest3. 
+ * The TextTest class gets user input and displays the square of a number in JFrameTest3. 
  * 
  * @author Hannah Kim & Sophia Nguyen.
  * @version 1 03.28.19
@@ -13,7 +13,7 @@ import java.awt.Font;
 public class TextTest extends JPanel{
   
   /**
- * The class constructor calls the methods for inputting and outputting text.
+ * The class constructor calls the methods that get user input and output text.
  */ 
   public TextTest ()
   {
@@ -22,11 +22,11 @@ public class TextTest extends JPanel{
   }
   
   /**
- * This method prompts users to enter text with a message.
+ * This method asks the user to enter an integer.
  * <p>
- * <b>Local variables: </b>
+ * <b>Variables: </b>
  * <p>
- * <b>enterValue </b> This creates an instance of the JMenuItem class called "Enter a value".
+ * <b>enterValue </b> This creates an instance of a JLabel named "Please enter an integer.".
  */ 
   
   public void inputPrompt()
@@ -40,13 +40,13 @@ public class TextTest extends JPanel{
   /**
  * This method prompts users to enter text with a message.
  * <p>
- * <b>Local variables: </b>
+ * <b>Variables: </b>
  * <p>
- * <b>calculate </b> This creates an instance of the JButton class called "Calculate".
+ * <b>calculate </b> This creates an instance of a JButton named "Calculate".
  * <p>
- * <b>inputField </b> This creates an instance of the JTextField class with a width of 20 characters.
+ * <b>inputField </b> This creates an instance of a JTextField with a width of 20 characters.
  * <p>
- * <b>outputField </b> This creates an instance of the JTextField class with a width of 25 characters.
+ * <b>outputField </b> This creates an instance of a JTextField with a width of 25 characters.
  */ 
   
   public void outputResult()

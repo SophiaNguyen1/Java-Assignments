@@ -3,35 +3,30 @@ import java.awt.event.*;
 import java.awt.FlowLayout;
 import java.awt.Font;
 /**
- * The JFrameTest class creates the application window,
- * menu bar, File menu, the Quit File menu item and the Help File menu item. It then adds
- * the menu items to the File menu and the File menu to the
- * menubar. It also ensures that the window will close if the user
- * clicks the 'x' button.
- *
- *
+ * <p>
+ * The JFrameTest class creates the program frame, menu bar, menus, and menu items. 
+ * It displays Help and About messages, and closes it when the user clicks on the close button. 
+ * <p>
  * @author Sophia Nguyen & Hannah Kim
  * @version 1 01.28.15
  */
 public class JFrameTest3 extends JFrame implements ActionListener{
     /**
-     * The class constructor passes a String title when it creates
-     * the superclass object. It then creates the application window,
-     * menu bar, File menu, the Quit File menu item and the Help File menu item. It then adds
-     * the menu item to the File menu and the File menu to the
-     * menubar. It sets the size of the Frame to 400x400, and
-     * ensures it will be visible.  It also ensures that the
-     * window will close if the user clicks the 'x' button.
+     * The class constructor calls the superclass constructor. 
+     * It creates and adds the app window, menu bar, File menu, the quit menu item, and the help menu item. 
+     * It sets the size of the Frame to 400x400 pixels, and allows it to be visible. 
+     * The user can exit the dialogs if they click the close button. 
+     * The user can exit the program by clicking the 'x' button. 
      * <p>
-     * <b>Local variables: </b>
+     * <b>Variables: </b>
      * <p>
-     * <b>helpItem </b> This creates an instance of the JMenuItem class called "Help".
+     * <b>helpItem </b> This creates an instance of a JMenuItem named "Help".
      * <p>
-     * <b>quitItem </b> This creates an instance of the JMenuItem class called "Quit".
+     * <b>quitItem </b> This creates an instance of a JMenuItem named "Quit".
      * <p>
-     * <b>fileMenu </b> This creates an instance of the JMenu class called "File".
+     * <b>fileMenu </b> This creates an instance of a JMenu named "File".
      * <p>
-     * <b>myMenus </b> This creates an instance of the JMenuBar class.
+     * <b>myMenus </b> This creates an instance of a JMenuBar.
      */
     public JFrameTest3() {
         super ("JFrame Test");
@@ -74,6 +69,11 @@ public class JFrameTest3 extends JFrame implements ActionListener{
 
         setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);  }
 
+    /* 
+     * The actionPerformed method closes the program if the user chose to quit 
+     * and calls helpDialog if the user chose something else. 
+     * @param ae stores an ActionEvent object from the user input 
+     */ 
     public void actionPerformed (ActionEvent ae){
         if (ae.getActionCommand().equals("Quit")){
             dispose ();
@@ -82,7 +82,13 @@ public class JFrameTest3 extends JFrame implements ActionListener{
             helpDialog(ae);
         }
     }
-
+    
+    /*
+     * The helpDialog method displays Help dialog and text if the user clicked the Help button.
+     * It displays About Us dialog and text if the user clicked the About button. 
+     * It allows the user to click the close button to close the dialogs. 
+     * @param ae stores an ActionEvent object from the user input 
+     */ 
     private void helpDialog (ActionEvent ae) {
         if (ae.getActionCommand().equals("Help")){
         JDialog myDialog = new JDialog(this, "Help Me");
@@ -112,20 +118,20 @@ public class JFrameTest3 extends JFrame implements ActionListener{
             aboutText = new JLabel ("Sophia - likes fried chicken and Hannah - plays competitive golf");
             aboutText.setFont (new Font ("Serif",Font.PLAIN,16));  
         
-            myDialog2.setSize(100, 200);
+            myDialog2.setSize(500, 200);
             myDialog2.setResizable(false);
             myDialog2.setLayout(new FlowLayout());
             
             JButton closeButton2 = new JButton ("Close");
-            closeButton.addActionListener (new ActionListener()
+            closeButton2.addActionListener (new ActionListener()
             {
               public void actionPerformed (ActionEvent e)
               {
-                aboutDialog.dispose();
+                myDialog2.dispose();
               }
             });
             
-            myDialog2.add (aboutValue);
+            myDialog2.add (aboutText);
             myDialog2.add(closeButton2);
             myDialog2.setLocationRelativeTo(this);
             myDialog2.setVisible(true);
